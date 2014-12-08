@@ -13,7 +13,7 @@ module MongoidToCSV
 
   def documents_to_csv(documents, fields = documents.first.class.fields)
     doc_class = documents.first.class
-    csv_columns = fields.keys - %w{_id created_at updated_at _type}
+    csv_columns = fields.keys - %w{_id updated_at _type}
     header_row = csv_columns.to_csv
     records_rows = documents.map do |record|
       csv_columns.map do |column|
